@@ -96,6 +96,31 @@ namespace LeandroAT1.DatasEmGeral
             return (int)(difereca.Days / 365.2425);
         }
 
+        public static int DifDataInicialEDataDeHojeEmDias(int diaI, int mesI, int anoI) 
+        {
+            DateTime dataInicial = new DateTime(anoI, mesI, diaI);
+            DateTime dataFinal = DateTime.Now;
+
+            TimeSpan difereca = dataFinal - dataInicial;
+            return difereca.Days;
+        }
+
+        public static int DifDataInicialEDataDeHojeEmDias(string dataIn)
+        {
+            int diaI, mesI, anoI;
+
+            //data inicial
+            diaI = Convert.ToInt32(dataIn.Substring(0, 2));
+            mesI = Convert.ToInt32(dataIn.Substring(3, 2));
+            anoI = Convert.ToInt32(dataIn.Substring(6, 4));
+
+            DateTime dataInicial = new DateTime(anoI, mesI, diaI);
+            DateTime dataFinal = DateTime.Now;
+
+            TimeSpan difereca = dataFinal - dataInicial;
+            return difereca.Days;
+        }
+
         /* public static int DifDataInicialEDataDeHojeEmMeses() { return 0; }
          public static int DifDataInicialEDataDeHojeEmAnos() { return 0; }
          public void SomarDiasParaUmaData();
