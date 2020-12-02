@@ -121,6 +121,18 @@ namespace LeandroAT1.DatasEmGeral
             return difereca.Days;
         }
 
+        public static DateTime SomarDiasParaUmaData(int qtdDias, int dia, int mes, int ano)
+        {
+            DateTime dataFutura = new DateTime(ano, mes, dia) ;
+            return dataFutura.AddDays(qtdDias);
+        }
+
+        public static DateTime SomarDiasApartirDataAtual(int qtdDias)
+        {
+            DateTime dataFutura = DateTime.Now;
+            return dataFutura.AddDays(qtdDias);
+        }
+
         /* public static int DifDataInicialEDataDeHojeEmMeses() { return 0; }
          public static int DifDataInicialEDataDeHojeEmAnos() { return 0; }
          public void SomarDiasParaUmaData();

@@ -19,6 +19,9 @@ namespace LeandroAT1
 
             Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmDias(1, 1, 2020));
             Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmDias("01/01/2020"));
+
+            Console.WriteLine(CalculoDeData.SomarDiasApartirDataAtual(1));
+            Console.WriteLine(CalculoDeData.SomarDiasParaUmaData(1, 1,1,2020));
         }
     }
 }
