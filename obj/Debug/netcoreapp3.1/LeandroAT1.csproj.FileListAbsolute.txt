@@ -1,0 +1,13 @@
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.csprojAssemblyReference.cache
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.AssemblyInfoInputs.cache
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.AssemblyInfo.cs
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\projects\cshap\LeandroAT1\bin\Debug\netcoreapp3.1\LeandroAT1.exe
+C:\Users\Leandro\projects\cshap\LeandroAT1\bin\Debug\netcoreapp3.1\LeandroAT1.deps.json
+C:\Users\Leandro\projects\cshap\LeandroAT1\bin\Debug\netcoreapp3.1\LeandroAT1.runtimeconfig.json
+C:\Users\Leandro\projects\cshap\LeandroAT1\bin\Debug\netcoreapp3.1\LeandroAT1.runtimeconfig.dev.json
+C:\Users\Leandro\projects\cshap\LeandroAT1\bin\Debug\netcoreapp3.1\LeandroAT1.dll
+C:\Users\Leandro\projects\cshap\LeandroAT1\bin\Debug\netcoreapp3.1\LeandroAT1.pdb
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.dll
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.pdb
+C:\Users\Leandro\projects\cshap\LeandroAT1\obj\Debug\netcoreapp3.1\LeandroAT1.genruntimeconfig.cache
