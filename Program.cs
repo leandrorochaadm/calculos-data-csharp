@@ -58,6 +58,13 @@ namespace LeandroAT1
 
             Console.WriteLine("SomarDiasApartirDataAtual: " + CalculoDeDataOtimizado.SomarDiasApartirDataAtual(1));
             Console.WriteLine("SomarDiasParaUmaData: " + CalculoDeDataOtimizado.SomarDiasParaUmaData(1, 1, 1, 2020));
+
+            Console.WriteLine("\n >>>>>> VALIDAÇÕES CONTA <<<<<<<< \n");
+
+            bool contaBB = Validacoes.Validadores.ValidarContaBB("2132","00029604x");
+            if (contaBB) Console.WriteLine("Conta BB é válida"); else Console.WriteLine("Conta BB é inválida");
+
+            Console.ReadKey();
         }
     }
 }
