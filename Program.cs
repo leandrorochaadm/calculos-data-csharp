@@ -1,5 +1,6 @@
 ﻿using LeandroAT1.DatasEmGeral;
 using System;
+using System.Collections.Generic;
 
 namespace LeandroAT1
 {
@@ -9,8 +10,8 @@ namespace LeandroAT1
         {
             Console.WriteLine("\n>>>>>>>>>>>> ATIVADADE AVALITIVA 1 <<<<<<<<<<<");
 
-            Console.WriteLine("Dias num: "+CalculoDeData.DifEntreDatasEmDias(1,1,2020,1,2,2020));
-            Console.WriteLine("Dias string: " + CalculoDeData.DifEntreDatasEmDias("01/01/2020","01/02/2020"));
+            Console.WriteLine("Dias num: " + CalculoDeData.DifEntreDatasEmDias(1, 1, 2020, 1, 2, 2020));
+            Console.WriteLine("Dias string: " + CalculoDeData.DifEntreDatasEmDias("01/01/2020", "01/02/2020"));
 
             Console.WriteLine("Meses num: " + CalculoDeData.DifEntreDatasEmMeses(1, 1, 2020, 1, 2, 2020));
             Console.WriteLine("Meses string: " + CalculoDeData.DifEntreDatasEmMeses("01/01/2020", "01/02/2020"));
@@ -22,7 +23,7 @@ namespace LeandroAT1
             Console.WriteLine("Dif hoje string: " + CalculoDeData.DifDataInicialEDataDeHojeEmDias("01/01/2020"));
 
             Console.WriteLine("SomarDiasApartirDataAtual: " + CalculoDeData.SomarDiasApartirDataAtual(1));
-            Console.WriteLine("SomarDiasApartirDataAtual: " + CalculoDeData.SomarDiasParaUmaData(1, 1,1,2020));
+            Console.WriteLine("SomarDiasApartirDataAtual: " + CalculoDeData.SomarDiasParaUmaData(1, 1, 1, 2020));
 
             Console.WriteLine("DifDataInicialEDataDeHojeEmMeses num: " + CalculoDeData.DifDataInicialEDataDeHojeEmMeses(1, 1, 2020));
             Console.WriteLine("DifDataInicialEDataDeHojeEmMeses string: " + CalculoDeData.DifDataInicialEDataDeHojeEmMeses("01/01/2020"));
@@ -61,10 +62,20 @@ namespace LeandroAT1
 
             Console.WriteLine("\n >>>>>> VALIDAÇÕES CONTA <<<<<<<< \n");
 
-            bool contaBB = Validacoes.Validadores.ValidarContaBB("2132","00029604x");
+            bool contaBB = Validacoes.Validadores.ValidarContaBB("2132", "00029604x");
             if (contaBB) Console.WriteLine("Conta BB é válida"); else Console.WriteLine("Conta BB é inválida");
 
+            var listaCPF = new List<string> { "52998224725", "94973166282", "11111111111" };
+            listaCPF.ForEach(cpf => imprimirValidacaoCPF(cpf));
+           
+
             Console.ReadKey();
+        }
+
+        private static void imprimirValidacaoCPF(string cpf) 
+        {
+            if (Validacoes.Validadores.ValidarCPF(cpf)) Console.WriteLine($"o CPF {cpf} é válido"); else Console.WriteLine($"o CPF {cpf} é inválido");
+  
         }
     }
 }
