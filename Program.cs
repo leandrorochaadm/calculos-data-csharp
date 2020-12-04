@@ -8,6 +8,7 @@ namespace LeandroAT1
     {
         static void Main(string[] args)
         {
+            /*
             Console.WriteLine("\n>>>>>>>>>>>> ATIVADADE AVALITIVA 1 <<<<<<<<<<<");
 
             Console.WriteLine("Dias num: " + CalculoDeData.DifEntreDatasEmDias(1, 1, 2020, 1, 2, 2020));
@@ -66,9 +67,12 @@ namespace LeandroAT1
             if (contaBB) Console.WriteLine("Conta BB é válida"); else Console.WriteLine("Conta BB é inválida");
 
             var listaCPF = new List<string> { "52998224725", "94973166282", "11111111111" };
-            listaCPF.ForEach(cpf => imprimirValidacaoCPF(cpf));
-           
+            listaCPF.ForEach(cpf => imprimirValidacaoCPF(cpf)); 
+            */
 
+            var listaCNPJ = new List<string> { "11222333000181", "19404061000141", "11111111111111", "88688651000167" };
+            listaCNPJ.ForEach(cnpj => imprimirValidacaoCNPJ(cnpj));
+            
             Console.ReadKey();
         }
 
@@ -76,6 +80,12 @@ namespace LeandroAT1
         {
             if (Validacoes.Validadores.ValidarCPF(cpf)) Console.WriteLine($"o CPF {cpf} é válido"); else Console.WriteLine($"o CPF {cpf} é inválido");
   
+        }
+
+        private static void imprimirValidacaoCNPJ(string cnpj)
+        {
+            if (Validacoes.Validadores.ValidarCNPJ(cnpj)) Console.WriteLine($"o CNPJ {cnpj} é válido"); else Console.WriteLine($"o CNPJ {cnpj} é inválido");
+
         }
     }
 }

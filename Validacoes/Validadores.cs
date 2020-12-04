@@ -32,7 +32,7 @@ namespace LeandroAT1.Validacoes
             return verificado;
         }
 
-        private static bool VerificaDigitosIguaisCPF(string cpf)
+        private static bool VerificaDigitosIguais(string cpf)
         {
             int  quantDigitosIguais = 0;
             char referencia = cpf[0];
@@ -46,7 +46,7 @@ namespace LeandroAT1.Validacoes
                 // Console.WriteLine($"d: {d}, ref: {referencia}, quantDigitosIguais {quantDigitosIguais}");
             }
             //Console.WriteLine($"são iguais: {quantDigitosIguais==11}");
-            return quantDigitosIguais == 11;
+            return quantDigitosIguais >= 11;
         }
         private static bool VerificaDigitosValidadoresCPF(string cpf)
         {
@@ -89,10 +89,57 @@ namespace LeandroAT1.Validacoes
         public static bool ValidarCPF(string cpf)
         {
             //Console.WriteLine("validar cpf");
-            if (!VerificaDigitosIguaisCPF(cpf)) {
+            if (!VerificaDigitosIguais(cpf)) {
                 return VerificaDigitosValidadoresCPF(cpf);
             }
             return false;
         }
+
+        private static bool VerificaDigitosValidadoresCNPJ(string cnpj)
+        {
+            string cnjpOriginal = cnpj;
+            int soma = 0;
+            List<int> peso = new List<int> { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            for (int i = 0; i < 12; i++)
+            {
+                soma += peso[i] * Convert.ToInt32(cnpj.Substring(i,1));
+                // Console.WriteLine($"i {i}, peso {peso[i]}, n {cnpj.Substring(i, 1)}");
+            }
+            int resto = soma % 11;
+
+            int primeiroDigitoVerificador = 0;
+            if (resto > 2) primeiroDigitoVerificador = 11 - resto;
+            // Console.WriteLine($"1d {primeiroDigitoVerificador}");
+            //---------
+            cnpj = cnpj.Substring(0, 12) + primeiroDigitoVerificador.ToString();
+            // Console.WriteLine(cnpj);
+
+            soma = 0;
+            peso = new List<int> { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            for (int i = 0; i < 13; i++)
+            {
+                soma += peso[i] * Convert.ToInt32(cnpj.Substring(i, 1));
+                // Console.WriteLine($"i {i}, peso {peso[i]}, n {cnpj.Substring(i, 1)}");
+            }
+            resto = soma % 11;
+            int segundoDigitoVerificador = 0;
+            if (resto > 2) segundoDigitoVerificador = 11 - resto;
+           // Console.WriteLine($"1d {segundoDigitoVerificador}");
+           // Console.WriteLine($"soma: {soma}");
+            cnpj += segundoDigitoVerificador.ToString();
+            //Console.WriteLine(cnpj);
+            return cnpj.Equals(cnjpOriginal);
+        }
+
+        public static bool ValidarCNPJ(string cnpj)
+        {
+            //Console.WriteLine("validar cpf");
+            if (!VerificaDigitosIguais(cnpj))
+            {
+                return VerificaDigitosValidadoresCNPJ(cnpj);
+            }
+            return false;
+        }
+
     }
 }
