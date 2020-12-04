@@ -22,6 +22,24 @@ namespace LeandroAT1
 
             Console.WriteLine(CalculoDeData.SomarDiasApartirDataAtual(1));
             Console.WriteLine(CalculoDeData.SomarDiasParaUmaData(1, 1,1,2020));
+
+            Console.WriteLine("DifDataInicialEDataDeHojeEm...");
+
+            Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmDias(1, 1, 2020));
+            Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmDias("01/01/2020"));
+
+            Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmMeses(1, 1, 2020));
+            Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmMeses("01/01/2020"));
+
+            Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmAnos(1, 1, 2020));
+            Console.WriteLine(CalculoDeData.DifDataInicialEDataDeHojeEmAnos("01/01/2020"));
+
+            Console.WriteLine(CalculoDeData.SomarDiasApartirDataAtual(1));
+            Console.WriteLine(CalculoDeData.SomarDiasParaUmaData(1, 1, 1, 2020));
+
+            Console.WriteLine("otimizado");
+
+            Console.WriteLine(CalculoDeDataOtimizado.DifEntreDatasEmDias(1, 1, 2020, 1, 2, 2020));
         }
     }
 }

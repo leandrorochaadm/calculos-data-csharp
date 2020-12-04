@@ -121,6 +121,56 @@ namespace LeandroAT1.DatasEmGeral
             return difereca.Days;
         }
 
+        public static int DifDataInicialEDataDeHojeEmMeses(int diaI, int mesI, int anoI)
+        {
+            DateTime dataInicial = new DateTime(anoI, mesI, diaI);
+            DateTime dataFinal = DateTime.Now;
+
+            TimeSpan difereca = dataFinal - dataInicial;
+            return (int)(difereca.Days / 30.436875);
+        }
+
+        public static int DifDataInicialEDataDeHojeEmMeses(string dataIn)
+        {
+            int diaI, mesI, anoI;
+
+            //data inicial
+            diaI = Convert.ToInt32(dataIn.Substring(0, 2));
+            mesI = Convert.ToInt32(dataIn.Substring(3, 2));
+            anoI = Convert.ToInt32(dataIn.Substring(6, 4));
+
+            DateTime dataInicial = new DateTime(anoI, mesI, diaI);
+            DateTime dataFinal = DateTime.Now;
+
+            TimeSpan difereca = dataFinal - dataInicial;
+            return (int)(difereca.Days / 30.436875);
+        }
+
+        public static int DifDataInicialEDataDeHojeEmAnos(int diaI, int mesI, int anoI)
+        {
+            DateTime dataInicial = new DateTime(anoI, mesI, diaI);
+            DateTime dataFinal = DateTime.Now;
+
+            TimeSpan difereca = dataFinal - dataInicial;
+            return (int)(difereca.Days / 365.2425);
+        }
+
+        public static int DifDataInicialEDataDeHojeEmAnos(string dataIn)
+        {
+            int diaI, mesI, anoI;
+
+            //data inicial
+            diaI = Convert.ToInt32(dataIn.Substring(0, 2));
+            mesI = Convert.ToInt32(dataIn.Substring(3, 2));
+            anoI = Convert.ToInt32(dataIn.Substring(6, 4));
+
+            DateTime dataInicial = new DateTime(anoI, mesI, diaI);
+            DateTime dataFinal = DateTime.Now;
+
+            TimeSpan difereca = dataFinal - dataInicial;
+            return (int)(difereca.Days / 365.2425);
+        }
+
         public static DateTime SomarDiasParaUmaData(int qtdDias, int dia, int mes, int ano)
         {
             DateTime dataFutura = new DateTime(ano, mes, dia) ;
@@ -132,12 +182,5 @@ namespace LeandroAT1.DatasEmGeral
             DateTime dataFutura = DateTime.Now;
             return dataFutura.AddDays(qtdDias);
         }
-
-        /* public static int DifDataInicialEDataDeHojeEmMeses() { return 0; }
-         public static int DifDataInicialEDataDeHojeEmAnos() { return 0; }
-         public void SomarDiasParaUmaData();
-         public void SomarDiasApartirDataAtual();
-        */
-
     }
 }
