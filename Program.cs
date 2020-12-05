@@ -72,11 +72,15 @@ namespace LeandroAT1
 
             var listaCNPJ = new List<string> { "11222333000181", "19404061000141", "11111111111111", "88688651000167" };
             listaCNPJ.ForEach(cnpj => imprimirValidacaoCNPJ(cnpj));
-            */
-
+            
             var listaCitiBank = new List<string> { "75004658", "52700923049", "53117901477", "75802959035" };
             listaCitiBank.ForEach(conta => imprimirValidacaoContaCitiBank(conta));
-        
+            */
+
+
+
+            var listaCEF = new List<contaCEF> {new contaCEF("2004","1000004486") };
+            listaCEF.ForEach(cef => imprimirValidacaoContaCEF(cef.agencia, cef.conta));
 
             Console.ReadKey();
         }
@@ -96,6 +100,33 @@ namespace LeandroAT1
         {
             if (Validacoes.Validadores.ValidarContaCitiBank(citi)) Console.WriteLine($"a conta CitiBank {citi} é válida"); else Console.WriteLine($"a conta CitiBank {citi} é inválida");
 
+        }
+
+        private static void imprimirValidacaoContaCEF(string agencia, string conta)
+        {
+            string bancoConta = $"A agência {agencia} e a conta CEF {conta} são";
+
+            if (Validacoes.Validadores.ValidarContaCEF(agencia, conta)) 
+            {
+                bancoConta += " válidas";
+            }
+            else
+            {
+                bancoConta += " inválidas";
+            }
+
+            Console.WriteLine(bancoConta);
+        }
+        public class contaCEF
+        {
+            public string agencia;
+            public string conta;
+
+           public contaCEF(string agencia, string conta)
+            {
+                this.conta = conta;
+                this.agencia = agencia;
+            }
         }
     }
 }
