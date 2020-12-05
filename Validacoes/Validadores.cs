@@ -88,7 +88,6 @@ namespace LeandroAT1.Validacoes
 
         public static bool ValidarCPF(string cpf)
         {
-            //Console.WriteLine("validar cpf");
             if (!VerificaDigitosIguais(cpf)) {
                 return VerificaDigitosValidadoresCPF(cpf);
             }
@@ -133,13 +132,47 @@ namespace LeandroAT1.Validacoes
 
         public static bool ValidarCNPJ(string cnpj)
         {
-            //Console.WriteLine("validar cpf");
             if (!VerificaDigitosIguais(cnpj))
             {
                 return VerificaDigitosValidadoresCNPJ(cnpj);
             }
             return false;
         }
+
+        public static bool ValidarContaCitiBank(string conta)
+        {
+            int digitoCont = Convert.ToInt32(conta.Substring(conta.Length-1,1));
+            int total = 0;
+            int peso = 11;
+            
+           // Console.WriteLine($"conta: {conta}");
+           // Console.WriteLine(digitoCont);
+            conta = conta.Substring(0,conta.Length - 1);
+           // Console.WriteLine($"conta: {conta}");
+            while (conta.Length < 10)
+            {
+                conta = "0" + conta;
+            }
+            
+           // Console.WriteLine($"conta: {conta}");
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                total += peso * Convert.ToInt32(conta.Substring(i, 1));
+                peso--;
+            }
+            // Console.WriteLine($"soma: {total}");
+
+            
+            int resto = total % 11;
+            int dvCont = 0;
+            if (resto > 1)
+                dvCont = 11 - resto;
+                
+            return dvCont==digitoCont;
+        }
+
 
     }
 }
