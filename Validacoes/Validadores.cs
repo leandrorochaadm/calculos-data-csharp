@@ -181,7 +181,7 @@ namespace LeandroAT1.Validacoes
 
         public static bool ValidarContaCEF(string agencia, string conta)
         {
-            if (agencia.Length > 4 || conta.Length > 11) return false;
+            if (agencia.Length > 4 || conta.Length > 12) return false;
             int digitoCont = Convert.ToInt32(conta.Substring(conta.Length - 1, 1));
             conta = conta.Substring(0, conta.Length - 1);
 
@@ -189,38 +189,25 @@ namespace LeandroAT1.Validacoes
             conta = zerosNaEsquerda(conta, 11);
             string parte1 = agencia + conta.Substring(0, 3);
             string parte2 = conta.Substring(3, 8);
-            Console.WriteLine(parte1);
-            Console.WriteLine(parte2);
             
             int soma = 0;
             int peso = 8;
             for (int i = 0; i < 7; i++)
             {
                 soma += peso * Convert.ToInt32(parte1.Substring(i, 1));
-                 Console.WriteLine($"i {i}, peso {peso}, n {parte1.Substring(i, 1)}, soma {soma}");
                 peso--;
             }
-
-            // Console.WriteLine($"1d {primeiroDigitoVerificador}");
-            //---------
-            //cnpj = cnpj.Substring(0, 12) + primeiroDigitoVerificador.ToString();
-            // Console.WriteLine(cnpj);
 
             peso = 9;
             for (int i = 0; i < 8; i++)
             {
                 soma += peso * Convert.ToInt32(parte2.Substring(i, 1));
-                Console.WriteLine($"i {i}, peso {peso}, n {parte2.Substring(i, 1)}, soma {soma}");
                 peso--;
             }
 
             int resto = (soma * 10) - ((int)(soma * 10) / 11) * 11;
             int digitoVerificador = 0;
             if (resto != 10) digitoVerificador = resto; 
-          
-            Console.WriteLine(resto);
-
-           
    
             return digitoVerificador==digitoCont;
         }

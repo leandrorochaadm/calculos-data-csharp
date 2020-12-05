@@ -77,9 +77,13 @@ namespace LeandroAT1
             listaCitiBank.ForEach(conta => imprimirValidacaoContaCitiBank(conta));
             */
 
-
-
-            var listaCEF = new List<contaCEF> {new contaCEF("2004","1000004486") };
+            var listaCEF = new List<contaCEF> 
+            { 
+                new contaCEF("2004", "1000004486"), 
+                new contaCEF("3056", "111364691"), 
+                new contaCEF("2141", "001813767310"),
+                new contaCEF("3875","998174112"),
+            };
             listaCEF.ForEach(cef => imprimirValidacaoContaCEF(cef.agencia, cef.conta));
 
             Console.ReadKey();
