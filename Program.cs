@@ -75,16 +75,25 @@ namespace LeandroAT1
             
             var listaCitiBank = new List<string> { "75004658", "52700923049", "53117901477", "75802959035" };
             listaCitiBank.ForEach(conta => imprimirValidacaoContaCitiBank(conta));
-            */
-
-            var listaCEF = new List<contaCEF> 
+            
+            var listaCEF = new List<contaComAgencia> 
             { 
-                new contaCEF("2004", "1000004486"), 
-                new contaCEF("3056", "111364691"), 
-                new contaCEF("2141", "001813767310"),
-                new contaCEF("3875","998174112"),
+                new contaComAgencia("2004", "1000004486"), 
+                new contaComAgencia("3056", "111364691"), 
+                new contaComAgencia("2141", "001813767310"),
+                new contaComAgencia("3875","998174112"),
             };
             listaCEF.ForEach(cef => imprimirValidacaoContaCEF(cef.agencia, cef.conta));
+            */
+
+            var listaItau = new List<contaComAgencia>
+            {
+                new contaComAgencia("2545", "23661"),
+                new contaComAgencia("247", "740269"),
+                new contaComAgencia("7964", "14396365"),
+                new contaComAgencia("0162","162240"),
+            };
+            listaItau.ForEach(itau => imprimirValidacaoContaItau(itau.agencia, itau.conta));
 
             Console.ReadKey();
         }
@@ -121,12 +130,28 @@ namespace LeandroAT1
 
             Console.WriteLine(bancoConta);
         }
-        public class contaCEF
+
+        private static void imprimirValidacaoContaItau(string agencia, string conta)
+        {
+            string bancoConta = $"A agência {agencia} e a conta Itau {conta} são";
+
+            if (Validacoes.Validadores.ValidarContaItau(agencia, conta))
+            {
+                bancoConta += " válidas";
+            }
+            else
+            {
+                bancoConta += " inválidas";
+            }
+
+            Console.WriteLine(bancoConta);
+        }
+        public class contaComAgencia
         {
             public string agencia;
             public string conta;
 
-           public contaCEF(string agencia, string conta)
+           public contaComAgencia(string agencia, string conta)
             {
                 this.conta = conta;
                 this.agencia = agencia;

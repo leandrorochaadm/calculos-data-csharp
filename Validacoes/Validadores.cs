@@ -212,5 +212,37 @@ namespace LeandroAT1.Validacoes
             return digitoVerificador==digitoCont;
         }
 
+        public static bool ValidarContaItau(string agencia, string conta)
+        {
+            if (agencia.Length > 4 || conta.Length > 6) return false;
+            int digitoCont = Convert.ToInt32(conta.Substring(conta.Length - 1, 1));
+            conta = conta.Substring(0, conta.Length - 1);
+
+            agencia = zerosNaEsquerda(agencia, 4);
+            conta = zerosNaEsquerda(conta, 5);
+            string parte = agencia + conta;
+
+            int soma = 0;
+            int peso = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                if (i % 2 == 0) peso = 2; else peso = 1;
+
+                int mult = peso * Convert.ToInt32(parte.Substring(i, 1));
+
+                if (mult > 9) 
+                {
+                    string multStr = mult.ToString();
+                    mult = Convert.ToInt32(multStr.Substring(0, 1)) + Convert.ToInt32(multStr.Substring(1, 1));
+                }
+                soma += mult;
+            }
+
+            int resto = soma % 10;
+            int digitoVerificador = 0;
+            if (resto != 0) digitoVerificador = 10- resto;
+            return digitoVerificador == digitoCont;
+        }
+
     }
 }
