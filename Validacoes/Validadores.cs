@@ -269,5 +269,47 @@ namespace LeandroAT1.Validacoes
             return digitoVerificador == digitoCont;
         }
 
+        public static string Inverter(string cartao)
+        {
+            string cartaoInvertido = "";
+            for (int i = cartao.Length-1; i >= 0; i--)
+            {
+                cartaoInvertido += cartao.Substring(i,1);
+            }
+            Console.WriteLine(cartaoInvertido);
+            return cartaoInvertido;
+        }
+
+        public static bool ValidarCartaoCredito(string cartao)
+        {
+            if (cartao.Length <12 || cartao.Length>19) return false;
+            int verificador = Convert.ToInt32(cartao.Substring(cartao.Length - 1, 1));
+            cartao = cartao.Substring(0, cartao.Length - 1);
+            Console.WriteLine(cartao);
+
+            cartao =Inverter(cartao);
+
+            int soma = 0;
+            int peso = 0;
+            for (int i = 0; i < cartao.Length; i++)
+            {
+                if (i % 2 == 0) peso = 2; else peso = 1;
+
+                int mult = peso * Convert.ToInt32(cartao.Substring(i, 1));
+              
+                if (mult > 9)
+                {
+                    mult -= 9  ;
+                }
+               
+                soma += mult;
+Console.WriteLine($"cartao: {cartao.Substring(i, 1)} mult: {peso * Convert.ToInt32(cartao.Substring(i, 1))} mult9: {mult}, peso: {peso} soma: {soma}");
+
+            }
+
+            int resto = soma % 10;
+           
+            return resto==verificador;
+        }
     }
 }
