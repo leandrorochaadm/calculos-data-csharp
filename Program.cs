@@ -8,7 +8,7 @@ namespace LeandroAT1
     {
         static void Main(string[] args)
         {
-            /*   
+               
             Console.WriteLine("\n>>>>>>>>>>>> ATIVADADE AVALITIVA 1 <<<<<<<<<<<");
 
             Console.WriteLine("Dias num: " + CalculoDeData.DifEntreDatasEmDias(1, 1, 2020, 1, 2, 2020));
@@ -94,7 +94,7 @@ namespace LeandroAT1
                 new contaComAgencia("0162","162240"),
             };
             listaItau.ForEach(itau => imprimirValidacaoContaItau(itau.agencia, itau.conta));
-            */
+            
 
             Console.WriteLine( Validacoes.Validadores.ValidarCartaoCredito("4556737586899855"));
 
