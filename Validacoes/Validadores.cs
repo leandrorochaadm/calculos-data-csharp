@@ -86,8 +86,30 @@ namespace LeandroAT1.Validacoes
             return primeiroVerificador && segundoVerificador;
         }
 
+        private static string RetirarMascaraCPF(string cpf)
+        {
+            if (cpf.Length > 11)
+            {
+                return cpf.Substring(0, 3) + cpf.Substring(4, 3) + cpf.Substring(8, 3) + cpf.Substring(12, 2);
+            }
+            else return cpf;
+        }
+
+        private static string RetirarMascaraCNPJ(string cnpj)
+        {
+            if (cnpj.Length > 14)
+            {
+                return cnpj.Substring(0, 2) + cnpj.Substring(3, 3) + cnpj.Substring(7, 3) + cnpj.Substring(11, 4) + cnpj.Substring(16, 2);
+            }
+            else return cnpj;
+        }
+
         public static bool ValidarCPF(string cpf)
         {
+            //inserindo zeros a esquerda exercicio 4
+            cpf = zerosNaEsquerda(cpf,11);
+            cpf = RetirarMascaraCPF(cpf);
+
             if (!VerificaDigitosIguais(cpf)) {
                 return VerificaDigitosValidadoresCPF(cpf);
             }
@@ -132,6 +154,9 @@ namespace LeandroAT1.Validacoes
 
         public static bool ValidarCNPJ(string cnpj)
         {
+            //inserindo zeros a esquerda exercicio 4
+            cnpj = zerosNaEsquerda(cnpj, 14);
+            cnpj = RetirarMascaraCNPJ(cnpj);
             if (!VerificaDigitosIguais(cnpj))
             {
                 return VerificaDigitosValidadoresCNPJ(cnpj);

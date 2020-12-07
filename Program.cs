@@ -8,7 +8,7 @@ namespace LeandroAT1
     {
         static void Main(string[] args)
         {
-            /*
+            
             Console.WriteLine("\n>>>>>>>>>>>> ATIVADADE AVALITIVA 1 <<<<<<<<<<<");
 
             Console.WriteLine("Dias num: " + CalculoDeData.DifEntreDatasEmDias(1, 1, 2020, 1, 2, 2020));
@@ -66,11 +66,11 @@ namespace LeandroAT1
             bool contaBB = Validacoes.Validadores.ValidarContaBB("2132", "00029604x");
             if (contaBB) Console.WriteLine("Conta BB é válida"); else Console.WriteLine("Conta BB é inválida");
 
-            var listaCPF = new List<string> { "52998224725", "94973166282", "11111111111" };
+            var listaCPF = new List<string> { "52998224725", "94973166282", "11111111111", "148.612.470-47", "704.905.350-38", "276.649.450-20" };
             listaCPF.ForEach(cpf => imprimirValidacaoCPF(cpf)); 
             
 
-            var listaCNPJ = new List<string> { "11222333000181", "19404061000141", "11111111111111", "88688651000167" };
+            var listaCNPJ = new List<string> { "11222333000181", "19404061000141", "11111111111111", "88688651000167", "64.475.852/0001-18", "29.044.006/0001-42" };
             listaCNPJ.ForEach(cnpj => imprimirValidacaoCNPJ(cnpj));
             
             var listaCitiBank = new List<string> { "75004658", "52700923049", "53117901477", "75802959035" };
@@ -84,7 +84,7 @@ namespace LeandroAT1
                 new contaComAgencia("3875","998174112"),
             };
             listaCEF.ForEach(cef => imprimirValidacaoContaCEF(cef.agencia, cef.conta));
-            */
+            
 
             var listaItau = new List<contaComAgencia>
             {
